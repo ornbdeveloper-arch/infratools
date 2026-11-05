@@ -1,0 +1,9 @@
+psutil
+rich
+requests
+fastapi
+uvicorn
+pydantic
+plotly
+pyside6
+pytest
