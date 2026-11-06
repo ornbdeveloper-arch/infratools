@@ -1,7 +1,12 @@
 import psutil
+import cpuinfo
+"""
+Deixando de aviso a mim mesmo, usei cpuinfo pois as outras libs que testei (platform e psutil) retornaram o nome técnico do processador e o dado que eu queria era o nome comercial.
+"""
 
 def get_cpu_info():
     cpu_info = {
+        "model": cpuinfo.get_cpu_info()['brand_raw'],
         "cpu_usage": psutil.cpu_percent(interval=1),
         "cpu_freq": psutil.cpu_freq().current,
         "cpu_cores": psutil.cpu_percent(interval=None, percpu=True),

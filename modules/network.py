@@ -1,8 +1,22 @@
 import psutil
 import socket
+from scapy.config import conf
+
+
+def get_gateway():
+    try:
+        route = conf.route.route("0.0.0.0")
+        return route[2]
+    except Exception as error:
+        print(f"Erro ao consultar gateway: {error}")
+        return None
+
 
 def get_network_info():
-    network_info = {}
+    network_info = {
+        "gateway": get_gateway(),
+        "interfaces": {}
+    }
 
     network_interfaces = psutil.net_if_addrs()
     network_status = psutil.net_if_stats()
@@ -18,7 +32,7 @@ def get_network_info():
             "mac": None,
             "ipv4": None,
             "netmask": None,
-            "ipv6": None
+            "ipv6": None,
         }
 
         for address in addresses:
@@ -33,48 +47,6 @@ def get_network_info():
             elif address.family == psutil.AF_LINK:
                 interface_info["mac"] = address.address
 
-        network_info[interface] = interface_info
+        network_info["interfaces"][interface] = interface_info
+
     return network_info
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-import psutil
-import socket
-
-network_status = psutil.net_if_stats()
-network_interfaces = psutil.net_if_addrs()
-
-for interface, adresses in network_interfaces.items():
-    print(f"\nInterface: {interface}")
-    if network_status[interface].isup:
-        print("Estado: Ativo")
-    else:
-        print("Estado: Inativo")
-
-    print(f"Velocidade reportada: {network_status[interface].speed}Mbps")
-    print(f"MTU {network_status[interface].mtu}")
-
-    for adress in adresses:
-        
-        if adress.family == socket.AF_INET:
-            print(f"IPv4: {adress.address}")
-        elif adress.family == socket.AF_INET6:
-            print(f"IPv6: {adress.address}")
-        elif adress.family == socket.AF_LINK:
-            print(f"MAC: {adress.address}")
-
-
-
-
-
-'''

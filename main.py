@@ -38,6 +38,7 @@ cpu_table.add_row("Uso da CPU", f"{cpu['cpu_usage']}%")
 cpu_table.add_row("Frequência", f"{cpu['cpu_freq']}MHz")
 cpu_table.add_row("Núcleos Físicos", f"{cpu['physical_cores']}")
 cpu_table.add_row("Núcleos Lógicos", f"{cpu['logical_cores']}")
+cpu_table.add_row("Modelo", f"{cpu['model']}")
 console.print(cpu_table)
 
 # Tabela da memória RAM
@@ -85,7 +86,19 @@ system_table.add_row("Tempo ligado", f"{system['uptime']}")
 console.print(system_table)
 
 
-# Tabela de internet
+# Tabela de internet e tabela gateway
+
+gateway_table = Table(title="InfraTools | Roteamento")
+
+gateway_table.add_column("Indicador", style="cyan")
+gateway_table.add_column("Valor", style="green")
+
+gateway_table.add_row(
+    "Gateway padrão",
+    str(network["gateway"] or "-")
+)
+console.print(gateway_table)
+
 network_table = Table(title="InfraTools | Rede")
 
 network_table.add_column("Interface", style="cyan")
@@ -96,7 +109,7 @@ network_table.add_column("IPv4")
 network_table.add_column("IPv6")
 network_table.add_column("MAC")
 
-for interface, info in network.items():
+for interface, info in network["interfaces"].items():
     network_table.add_row(
         interface,
         info["status"],
