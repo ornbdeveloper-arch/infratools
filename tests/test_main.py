@@ -1,6 +1,7 @@
 # Essa é minha primeira experiência prática criando testes unitários, pretendo expandir essa boa prática para mais setores do projeto.
 
 from modules.system import get_system_info
+from main import get_menu_options
 
 def test_system():
     result = get_system_info()
@@ -30,3 +31,15 @@ def test_system():
 
     assert isinstance(result["uptime"], str)
     assert result["uptime"] != ""
+
+
+# Aqui resolvi testar a execução do menu, apenas como exercíciod e fixação com a criação de parâmetros de teste.
+def test_menu():
+    menu_options = get_menu_options()
+
+    assert "[1] - Hardware" in menu_options
+    assert "[2] - Rede" in menu_options
+    assert "[3] - Processos" in menu_options
+    assert "[4] - Sistema" in menu_options
+    assert "[5] - Monitoramento completo" in menu_options
+    assert "[0] - Sair" in menu_options
