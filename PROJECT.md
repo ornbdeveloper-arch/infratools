@@ -101,14 +101,14 @@ python main.py
 ## Roadmap
 
 * [ ] Monitoramento de tráfego de rede.
-* [ ] Monitoramento de processos.
+* [X] Monitoramento de processos.
 * [ ] Monitoramento de serviços do sistema operacional.
 * [ ] Coleta de informações adicionais de hardware.
 * [ ] Sistema de classificação de saúde dos componentes.
 * [ ] Configuração de limites e alertas.
 * [ ] Histórico de métricas.
 * [ ] Geração de relatórios.
-* [ ] Interface gráfica.
+* [X] Interface gráfica.
 * [ ] Suporte ao Linux.
 * [ ] Modo de monitoramento contínuo.
 

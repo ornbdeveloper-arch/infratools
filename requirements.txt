@@ -9,3 +9,4 @@ pyside6
 pytest
 scapy
 py-cpuinfo
+jinja2

@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>InfraTools | Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">IT</div>
+
+            <div>
+                <h1>InfraTools</h1>
+                <p>Infrastructure Monitoring</p>
+            </div>
+        </div>
+
+        <span class="status">
+            <span class="status-dot"></span>
+            Aplicação online
+        </span>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">VISÃO GERAL</p>
+            <h2>Painel de monitoramento</h2>
+            <p>Acompanhe os recursos e o estado da sua infraestrutura.</p>
+        </section>
+
+        <section class="metrics">
+
+            <article class="card">
+                <span class="card-label">PROCESSADOR</span>
+                <h3 id="cpu-usage">--%</h3>
+                <p id="cpu-model">Aguardando dados...</p>
+            </article>
+
+            <article class="card">
+                <span class="card-label">MEMÓRIA RAM</span>
+                <h3 id="ram-usage">--%</h3>
+                <p id="ram-details">Aguardando dados...</p>
+            </article>
+
+            <article class="card">
+                <span class="card-label">ARMAZENAMENTO</span>
+                <h3 id="disk-count">--</h3>
+                <p id="disk-details">Aguardando dados...</p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', path='/js/app.js') }}" defer></script>
+
+</body>
+</html>
