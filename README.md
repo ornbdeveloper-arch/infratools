@@ -87,8 +87,8 @@ python main.py
 
 ## Roadmap
 
-* [ ] Monitoramento de tráfego de rede.
-* [ ] Monitoramento de processos.
+* [X] Monitoramento de tráfego de rede.
+* [X] Monitoramento de processos.
 * [ ] Monitoramento de serviços.
 * [ ] Monitoramento contínuo.
 * [ ] Sistema de classificação de saúde dos componentes.
