@@ -7,3 +7,5 @@ pydantic
 plotly
 pyside6
 pytest
+scapy
+py-cpuinfo

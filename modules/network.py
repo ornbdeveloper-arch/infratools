@@ -1,6 +1,6 @@
 import psutil
 import socket
-from scapy.config import conf
+from scapy.all import conf
 
 
 def get_gateway():
@@ -50,3 +50,4 @@ def get_network_info():
         network_info["interfaces"][interface] = interface_info
 
     return network_info
+
